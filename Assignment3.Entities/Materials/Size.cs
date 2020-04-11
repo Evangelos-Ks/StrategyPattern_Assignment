@@ -20,9 +20,9 @@ namespace Assignment3.Entities.Enums
         };
     }
 
-    enum Sizes
+    public enum Sizes
     {
-        XS,
+        XS = 1,
         S,
         M,
         L,

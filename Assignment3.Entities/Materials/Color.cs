@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.InteropServices;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -8,6 +10,7 @@ namespace Assignment3.Entities.Enums
 {
     class Color
     {
+       
         public static Dictionary<Colors, decimal> Cost = new Dictionary<Colors, decimal>()
         {
                 { Colors.Blue, 1m },
@@ -20,9 +23,10 @@ namespace Assignment3.Entities.Enums
         };
     }
 
-    enum Colors
+    
+    public enum Colors
     {
-        Blue,
+        Blue = 1,
         Green,
         Indigo,
         Orange,

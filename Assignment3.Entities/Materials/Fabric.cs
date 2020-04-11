@@ -20,9 +20,9 @@ namespace Assignment3.Entities
         };              
     }
 
-    enum Fabrics
+    public enum Fabrics
     {
-        Cashmere,
+        Cashmere = 1,
         Cotton,
         Linel,
         Polyester,

@@ -10,27 +10,35 @@ namespace Assignment3.Entities
     class TShirt
     {
         //============================= Properties =====================================
-        protected Fabric Fabric { get; }
-        protected Color Color { get; }
-        protected Size Size { get; }
-        public decimal Price { get; }
+        protected Fabrics TShirtFabric { get; }
+        protected Colors TShirtColor { get; }
+        protected Sizes TShirtSize { get; }
+        protected decimal TShirtPrice { get; }
 
-        public TShirt(Fabric fabric, Color color, Size size)
+        public TShirt(Fabrics fabric, Colors color, Sizes size)
         {
-            Fabric = fabric;
-            Color = color;
-            Size = size;
+            TShirtFabric = fabric;
+            TShirtColor = color;
+            TShirtSize = size;
+            TShirtPrice = (Color.Cost[color] + Fabric.Cost[fabric] + Size.Cost[size]);
         }
 
-        public void DisplayTShirt(TShirt tshirt)
+        public void DisplayTShirt()
         {
-            Console.WriteLine( );
-            Console.Write($"\tColor : {tshirt.Color.ToString()}");
-            Console.Write($"\tSize : {tshirt.Size.ToString()}");
-            Console.Write($"\tFabric : {tshirt.Fabric.ToString()}");
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
-            //COST
+            Console.WriteLine("\tThe T-shirt that you have selected has :");
+            Console.WriteLine( );
+            Console.WriteLine($"\tColor : {TShirtColor.ToString()}");
+            Console.WriteLine($"\tSize : {TShirtSize.ToString()}");
+            Console.WriteLine($"\tFabric : {TShirtFabric.ToString()}");
+            Console.WriteLine();
+            Console.WriteLine($"\tPrice : {TShirtPrice}");
+            Console.ForegroundColor = ConsoleColor.White;
+
         }
+
+
 
 
     }
