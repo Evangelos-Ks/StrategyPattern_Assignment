@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Enums\Color.cs" />
+    <Compile Include="Enums\Fabric.cs" />
+    <Compile Include="Enums\Size.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TShirt.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
