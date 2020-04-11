@@ -10,9 +10,28 @@ namespace Assignment3.Entities
     class TShirt
     {
         //============================= Properties =====================================
-        public Fabric Fabric { get; }
-        public Color Color { get; }
-        public Size Size { get; }
-        public decimal Price { get; set; }
+        protected Fabric Fabric { get; }
+        protected Color Color { get; }
+        protected Size Size { get; }
+        public decimal Price { get; }
+
+        public TShirt(Fabric fabric, Color color, Size size)
+        {
+            Fabric = fabric;
+            Color = color;
+            Size = size;
+        }
+
+        public void DisplayTShirt(TShirt tshirt)
+        {
+            Console.WriteLine( );
+            Console.Write($"\tColor : {tshirt.Color.ToString()}");
+            Console.Write($"\tSize : {tshirt.Size.ToString()}");
+            Console.Write($"\tFabric : {tshirt.Fabric.ToString()}");
+            Console.WriteLine();
+            //COST
+        }
+
+
     }
 }

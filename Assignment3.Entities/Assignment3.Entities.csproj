@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Eshop.cs" />
     <Compile Include="Materials\Color.cs" />
     <Compile Include="Materials\Fabric.cs" />
     <Compile Include="Materials\Size.cs" />
