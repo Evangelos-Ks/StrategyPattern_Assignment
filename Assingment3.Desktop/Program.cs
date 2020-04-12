@@ -14,6 +14,8 @@ namespace Assingment3.Desktop
         {
             Eshop eshop = new Eshop();
             eshop.MakeAndDisplayTShirt();
+            eshop.ChooseAndDispayPaymentMethod();
+            eshop.TryToPayAndDisplayTheResult();
 
             Console.ReadKey();
         }

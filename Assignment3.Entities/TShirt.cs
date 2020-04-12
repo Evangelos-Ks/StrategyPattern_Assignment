@@ -1,9 +1,5 @@
 ﻿using Assignment3.Entities.Enums;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment3.Entities
 {
@@ -15,6 +11,7 @@ namespace Assignment3.Entities
         protected Sizes TShirtSize { get; }
         public decimal TShirtPrice { get; }
 
+        //============================= Constructor =====================================
         public TShirt(Fabrics fabric, Colors color, Sizes size)
         {
             TShirtFabric = fabric;
@@ -23,12 +20,13 @@ namespace Assignment3.Entities
             TShirtPrice = (Color.Cost[color] + Fabric.Cost[fabric] + Size.Cost[size]);
         }
 
+        //============================= Methods =====================================
         public void DisplayTShirt()
         {
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine();
             Console.WriteLine("\tThe T-shirt that you have selected has :");
-            Console.WriteLine( );
+            Console.WriteLine();
             Console.WriteLine($"\tColor : {TShirtColor.ToString()}");
             Console.WriteLine($"\tSize : {TShirtSize.ToString()}");
             Console.WriteLine($"\tFabric : {TShirtFabric.ToString()}");
@@ -37,9 +35,5 @@ namespace Assignment3.Entities
             Console.ForegroundColor = ConsoleColor.White;
 
         }
-
-
-
-
     }
 }

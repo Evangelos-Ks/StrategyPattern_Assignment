@@ -48,7 +48,7 @@
     <Compile Include="PaymentMethods\BankTransfer.cs" />
     <Compile Include="PaymentMethods\Cash.cs" />
     <Compile Include="PaymentMethods\Credit-DebitCard.cs" />
-    <Compile Include="PaymentMethods\IPayMethod.cs" />
+    <Compile Include="PaymentMethods\PaymetnMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TShirt.cs" />
   </ItemGroup>

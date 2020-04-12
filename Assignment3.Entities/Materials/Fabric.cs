@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Assignment3.Entities
 {
@@ -13,7 +9,7 @@ namespace Assignment3.Entities
                 { Fabrics.Cashmere, 15m },
                 { Fabrics.Cotton, 12m },
                 { Fabrics.Linel, 10m },
-                { Fabrics.Polyester, 10m },
+                { Fabrics.Polyester, 10.5m },
                 { Fabrics.Rayon, 11m },
                 { Fabrics.Silk, 22m },
                 { Fabrics.Wool, 16m }

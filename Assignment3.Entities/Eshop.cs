@@ -1,17 +1,17 @@
 ﻿using Assignment3.Entities.Enums;
+using Assignment3.Entities.PaymentMethods;
 using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Assignment3.Entities
 {
     public class Eshop
     {
+        //============================ Fields =========================================================
         protected decimal peymentAmount;
+        protected PaymetnMethod payMethod;
 
+        //============================ Methods =========================================================
+        #region Ask methods (protected)
         //============================ Ask methods ====================================================
         protected int AskForColor()
         {
@@ -57,7 +57,7 @@ namespace Assignment3.Entities
                 }
             } while (success);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\t=================================================");
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -109,7 +109,7 @@ namespace Assignment3.Entities
                 }
             } while (success);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\t=================================================");
             Console.ForegroundColor = ConsoleColor.White;
 
@@ -161,13 +161,64 @@ namespace Assignment3.Entities
                 }
             } while (success);
 
-            Console.ForegroundColor = ConsoleColor.Green;
+            Console.ForegroundColor = ConsoleColor.Magenta;
             Console.WriteLine("\t=================================================");
             Console.ForegroundColor = ConsoleColor.White;
 
             return select;
         }
 
+        protected int AskForPaymentMethod()
+        {
+            bool success;
+            int select = 0;
+
+            Console.WriteLine();
+            Console.WriteLine("\tWith what payment method would you like to pay?");
+            Console.WriteLine();
+
+            Console.WriteLine("\t1. Credit card");
+            Console.WriteLine("\t2. Bank transfer");
+            Console.WriteLine("\t3. Cash");
+
+            do
+            {
+                Console.WriteLine();
+                Console.Write("\tInsert the appropriate number : ");
+
+                success = true;
+                try
+                {
+                    select = Convert.ToInt32(Console.ReadLine().Trim());
+                    success = false;
+                    if (select < 1 || select > 3)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("\tPlease select an appropriate number");
+                        Console.ForegroundColor = ConsoleColor.White;
+                        Console.WriteLine();
+                        success = true;
+                    }
+                }
+                catch (Exception)
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("\tPlease select an appropriate number");
+                    Console.ForegroundColor = ConsoleColor.White;
+                    Console.WriteLine();
+                    success = true;
+                }
+            } while (success);
+
+            Console.ForegroundColor = ConsoleColor.Magenta;
+            Console.WriteLine("\t=================================================");
+            Console.ForegroundColor = ConsoleColor.White;
+
+            return select;
+        }
+        #endregion
+
+        #region Select methods (protected)
         //============================ Select methods ====================================================
 
         protected Colors SelectColor(int selectColor)
@@ -233,12 +284,38 @@ namespace Assignment3.Entities
             }
         }
 
+        protected PaymetnMethod SelectPaymentMethod(int selectPaymentMethod)
+        {
+            switch (selectPaymentMethod)
+            {
+                case 1:
+                    return new Credit_DebitCard();
+                case 2:
+                    return new BankTransfer();
+                default:
+                    return new Cash();
+            }
+        }
+        #endregion
+
         //============================ Make and dispay Tshirt method ====================================================
         public void MakeAndDisplayTShirt()
         {
             TShirt shirt = new TShirt(SelectFabric(AskForFabric()), SelectColor(AskForColor()), SelectSize(AskForSize()));
             shirt.DisplayTShirt();
             peymentAmount = shirt.TShirtPrice;
+        }
+
+        //============================ Choose and dispay PaymentMethod ====================================================
+        public void ChooseAndDispayPaymentMethod()
+        {
+            payMethod = SelectPaymentMethod(AskForPaymentMethod());
+        }
+
+        //============================ Pay and Display if the transaction has successed ====================================================
+        public void TryToPayAndDisplayTheResult()
+        {
+            payMethod.DisplayTransactionApprouved(payMethod.Pay(peymentAmount));
         }
     }
 }
