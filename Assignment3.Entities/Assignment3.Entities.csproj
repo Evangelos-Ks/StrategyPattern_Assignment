@@ -45,6 +45,10 @@
     <Compile Include="Materials\Color.cs" />
     <Compile Include="Materials\Fabric.cs" />
     <Compile Include="Materials\Size.cs" />
+    <Compile Include="PaymentMethods\BankTransfer.cs" />
+    <Compile Include="PaymentMethods\Cash.cs" />
+    <Compile Include="PaymentMethods\Credit-DebitCard.cs" />
+    <Compile Include="PaymentMethods\IPayMethod.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TShirt.cs" />
   </ItemGroup>

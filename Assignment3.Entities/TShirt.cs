@@ -13,7 +13,7 @@ namespace Assignment3.Entities
         protected Fabrics TShirtFabric { get; }
         protected Colors TShirtColor { get; }
         protected Sizes TShirtSize { get; }
-        protected decimal TShirtPrice { get; }
+        public decimal TShirtPrice { get; }
 
         public TShirt(Fabrics fabric, Colors color, Sizes size)
         {

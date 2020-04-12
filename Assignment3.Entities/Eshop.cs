@@ -10,6 +10,8 @@ namespace Assignment3.Entities
 {
     public class Eshop
     {
+        protected decimal peymentAmount;
+
         //============================ Ask methods ====================================================
         protected int AskForColor()
         {
@@ -236,6 +238,7 @@ namespace Assignment3.Entities
         {
             TShirt shirt = new TShirt(SelectFabric(AskForFabric()), SelectColor(AskForColor()), SelectSize(AskForSize()));
             shirt.DisplayTShirt();
+            peymentAmount = shirt.TShirtPrice;
         }
     }
 }
