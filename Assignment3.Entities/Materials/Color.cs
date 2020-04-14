@@ -14,6 +14,7 @@ namespace Assignment3.Entities.Enums
                 { Colors.Violet, 2.1m },
                 { Colors.Yellow, 2m }
         };
+
     }
     
     public enum Colors

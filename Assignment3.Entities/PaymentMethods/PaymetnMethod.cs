@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Assignment3.Entities.PaymentMethods
 {
@@ -6,6 +7,14 @@ namespace Assignment3.Entities.PaymentMethods
     {
         public abstract string Name { get; }
         public abstract bool Pay(decimal amount);
+
+        public static List<PaymetnMethod> paymentMethodsList = new List<PaymetnMethod>() 
+        {
+            new Credit_DebitCard(),
+            new BankTransfer(),
+            new Cash(),
+        };
+
         public void DisplayTransactionApprouved(bool pay)
         {
             if (pay)

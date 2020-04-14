@@ -170,16 +170,20 @@ namespace Assignment3.Entities
 
         protected int AskForPaymentMethod()
         {
+            int count = 1;
             bool success;
             int select = 0;
 
             Console.WriteLine();
             Console.WriteLine("\tWith what payment method would you like to pay?");
             Console.WriteLine();
-
-            Console.WriteLine("\t1. Credit card");
-            Console.WriteLine("\t2. Bank transfer");
-            Console.WriteLine("\t3. Cash");
+           
+            foreach (var paymentMethod in PaymetnMethod.paymentMethodsList)
+            {
+                Console.WriteLine("\t" + count + "." + " " + paymentMethod.Name);
+                count++;
+            }
+            
 
             do
             {
@@ -289,11 +293,11 @@ namespace Assignment3.Entities
             switch (selectPaymentMethod)
             {
                 case 1:
-                    return new Credit_DebitCard();
+                    return PaymetnMethod.paymentMethodsList[0];
                 case 2:
-                    return new BankTransfer();
+                    return PaymetnMethod.paymentMethodsList[1];
                 default:
-                    return new Cash();
+                    return PaymetnMethod.paymentMethodsList[2];
             }
         }
         #endregion
