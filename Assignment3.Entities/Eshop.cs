@@ -195,7 +195,7 @@ namespace Assignment3.Entities
                 {
                     select = Convert.ToInt32(Console.ReadLine().Trim());
                     success = false;
-                    if (select < 1 || select > 3)
+                    if (select < 1 || select > PaymetnMethod.paymentMethodsList.Count)
                     {
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("\tPlease select an appropriate number");
@@ -293,11 +293,13 @@ namespace Assignment3.Entities
             switch (selectPaymentMethod)
             {
                 case 1:
-                    return PaymetnMethod.paymentMethodsList[0];
+                    return PaymetnMethod.paymentMethodsList[0]; //Credit
                 case 2:
-                    return PaymetnMethod.paymentMethodsList[1];
+                    return PaymetnMethod.paymentMethodsList[1]; // Bank transfer
+                case 3:
+                    return PaymetnMethod.paymentMethodsList[2]; //Cash
                 default:
-                    return PaymetnMethod.paymentMethodsList[2];
+                    return PaymetnMethod.paymentMethodsList[2]; //Cash
             }
         }
         #endregion
